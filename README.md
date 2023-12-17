@@ -1,3 +1,19 @@
+Nome: Caique Rodrigues do Nascimento
+RA: 11201722070
+
+OBS: A APLICACAO FOI CONSTRUIDA PARA RODAR NO MacOS para executar em Windows ou Linux é preciso mudar o #version 410 core para #version 300 es nos arquivos vtex do shader.
+
+Atividade 3 - Tiro Ao Alvaro
+
+Homenageando os gigantes da musica brasileira Adoniram Barbosa e Elis Regina. Tiro ao Alvo consiste em uma aplicacao em que é possivel se movimentar pelo mapa e achar "Alvaros" opacos e atingilos com uma flecha que pode ser arremessada de longe. 
+
+Para jogar baste se locomover com as setas do teclado e apertar a barra de espaço para arremessar a flecha.
+
+
+
+
+
+
 # ABCg
 
 ![build workflow](https://github.com/hbatagelo/abcg/actions/workflows/build.yml/badge.svg)
