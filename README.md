@@ -1,7 +1,7 @@
 Nome: Caique Rodrigues do Nascimento
 RA: 11201722070
 
-OBS: A APLICACAO FOI CONSTRUIDA PARA RODAR NO MacOS para executar em Windows ou Linux é preciso mudar o #version 410 core para #version 300 es nos arquivos vtex do shader.
+OBS: A APLICACAO FOI CONSTRUIDA PARA RODAR NO MacOS PARA EXECUTAR EM WINDOWS OU LINUX É PRECISO MUDAR O #version 410 core PARA #version 300 es NOS ARQUIVOS vtex
 
 Atividade 3 - Tiro Ao Alvaro
 
