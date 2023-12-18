@@ -11,7 +11,45 @@ Para jogar baste se locomover com as setas do teclado e apertar a barra de espa�
 
 
 
+#DEFININDO A POSICAO E INICIALIZANDO OS ALVOS
 
+  // Definindo posição inicial dos Alvos
+  m_randomEngine.seed(
+      std::chrono::steady_clock::now().time_since_epoch().count());
+
+  std::uniform_real_distribution<float> rd_alvaro_position(-5.0f, 5.0f);
+  std::uniform_int_distribution<int> rd_alvaro_model(0, m_modelPaths.size() - 1);
+
+  // inicializando alvos
+  for (int i = 0; i < m_num_targets; ++i) {
+    m_target[i] = m_targets_list[m_modelPaths[rd_alvaro_model(m_randomEngine)]];
+    m_target[i].m_position = glm::vec3(rd_alvaro_position(m_randomEngine), 0,
+                                        rd_alvaro_position(m_randomEngine));
+  }
+
+# RENDERIZANDO CADA ALVO
+
+  // renderizando cada alvo
+  for (int i = 0; i < m_num_targets; ++i) {
+    auto selectedTarget = m_target[i];
+
+    abcg::glBindVertexArray(selectedTarget.m_vao);
+
+    glm::mat4 model{1.0f};
+    // renderizacao condicional caso nao tenha sido capturado
+    if (selectedTarget.m_captured == false) {
+      model = glm::translate(model, selectedTarget.m_position);
+      model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0, 1, 0));
+      model = glm::scale(model, glm::vec3(0.02f));
+
+      abcg::glUniformMatrix4fv(m_modelMatrixLocation, 1, GL_FALSE,
+                               &model[0][0]);
+      abcg::glUniform4f(m_colorLocation, selectedTarget.m_color.r,
+                        selectedTarget.m_color.g, selectedTarget.m_color.b,
+                        selectedTarget.m_color.a);
+      abcg::glDrawElements(GL_TRIANGLES, selectedTarget.m_indices.size(),
+                           GL_UNSIGNED_INT, nullptr);
+    }
 
 
 # ABCg
